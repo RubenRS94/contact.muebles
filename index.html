@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto – Natura Home</title>
+  <meta name="description" content="Contacta con Natura Home. Resolvemos tus dudas sobre pedidos, productos, envíos y más. Atención personalizada de lunes a viernes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:       #F5F0EA;
+      --warm-white:  #FAF8F5;
+      --sand:        #E8DDD0;
+      --linen:       #DDD3C5;
+      --taupe:       #B5A898;
+      --bark:        #7A6655;
+      --earth:       #4A3728;
+      --charcoal:    #2B2520;
+      --black:       #1A1612;
+      --sage:        #8A9E8C;
+      --rust-accent: #C17F5A;
+      --font-serif:  'Cormorant Garamond', Georgia, serif;
+      --font-sans:   'Jost', sans-serif;
+      --transition:  0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius:      4px;
+      --shadow-sm:   0 2px 12px rgba(74,55,40,0.08);
+      --shadow-md:   0 8px 32px rgba(74,55,40,0.12);
+      --shadow-lg:   0 20px 60px rgba(74,55,40,0.16);
+      --max-w:       1200px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { background: var(--warm-white); color: var(--charcoal); font-family: var(--font-sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a   { text-decoration: none; color: inherit; }
+    ul  { list-style: none; }
+
+    .container { width: 92%; max-width: var(--max-w); margin: 0 auto; }
+
+    /* Tipografía */
+    .section-label { display: inline-block; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--bark); margin-bottom: 0.9rem; }
+    .section-title  { font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; line-height: 1.2; color: var(--black); }
+
+    /* Botones */
+    .btn { display: inline-block; font-family: var(--font-sans); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 0.8rem 1.9rem; border-radius: var(--radius); cursor: pointer; transition: var(--transition); border: none; white-space: nowrap; }
+    .btn-dark { background: var(--earth); color: var(--cream); }
+    .btn-dark:hover { background: var(--black); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+    .reveal-delay-4 { transition-delay: 0.32s; }
+
+    /* ── TOP BAR ── */
+    .top-bar { background: var(--earth); color: var(--sand); font-size: 0.71rem; font-weight: 400; letter-spacing: 0.09em; padding: 0.55rem 0; }
+    .top-bar-inner { display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; }
+    .top-bar-item { display: flex; align-items: center; gap: 0.4rem; }
+    .top-bar-item svg { flex-shrink: 0; opacity: 0.8; }
+
+    /* ── HEADER ── */
+    .site-header { position: sticky; top: 0; z-index: 1000; background: var(--warm-white); border-bottom: 1px solid transparent; transition: border-color 0.3s, box-shadow 0.3s; }
+    .site-header.scrolled { border-color: var(--sand); box-shadow: var(--shadow-sm); }
+    .header-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 1.2rem 0; gap: 1rem; }
+    .logo { display: flex; flex-direction: column; line-height: 1; }
+    .logo-name { font-family: var(--font-serif); font-size: 1.55rem; font-weight: 400; letter-spacing: 0.04em; color: var(--black); }
+    .logo-tagline { font-size: 0.6rem; font-weight: 400; letter-spacing: 0.24em; text-transform: uppercase; color: var(--taupe); margin-top: 2px; }
+    .main-nav { display: flex; gap: 2rem; align-items: center; }
+    .main-nav a { font-size: 0.76rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--charcoal); position: relative; padding-bottom: 3px; }
+    .main-nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--rust-accent); transition: width var(--transition); }
+    .main-nav a:hover::after, .main-nav a.active::after { width: 100%; }
+    .main-nav a:hover, .main-nav a.active { color: var(--earth); }
+    .header-actions { display: flex; justify-content: flex-end; align-items: center; gap: 1.2rem; }
+    .header-icon-btn { background: none; border: none; cursor: pointer; color: var(--charcoal); transition: color var(--transition); position: relative; display: flex; align-items: center; }
+    .header-icon-btn:hover { color: var(--rust-accent); }
+    .cart-count { position: absolute; top: -6px; right: -8px; background: var(--rust-accent); color: #fff; font-size: 0.6rem; font-weight: 500; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0); transition: var(--transition); }
+    .cart-count.show { opacity: 1; transform: scale(1); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--charcoal); transition: var(--transition); transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-nav { display: none; position: fixed; top: 0; right: 0; width: min(85vw,360px); height: 100vh; background: var(--warm-white); z-index: 1100; padding: 5.5rem 2.5rem 2.5rem; transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); overflow-y: auto; box-shadow: -8px 0 40px rgba(26,22,18,0.15); }
+    .mobile-nav.open { transform: translateX(0); }
+    .mobile-nav-close { position: absolute; top: 1.4rem; right: 1.4rem; background: none; border: none; cursor: pointer; font-size: 1.3rem; color: var(--charcoal); width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; }
+    .mobile-nav ul li a { display: block; font-family: var(--font-serif); font-size: 1.5rem; font-weight: 300; color: var(--black); padding: 0.85rem 0; border-bottom: 1px solid var(--sand); transition: color var(--transition), padding-left var(--transition); }
+    .mobile-nav ul li a:hover { color: var(--rust-accent); padding-left: 0.5rem; }
+    .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(26,22,18,0.4); z-index: 1050; backdrop-filter: blur(2px); }
+    .mobile-overlay.show { display: block; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { background: var(--cream); border-bottom: 1px solid var(--sand); padding: 0.75rem 0; }
+    .breadcrumb-inner { display: flex; align-items: center; gap: 0.5rem; font-size: 0.74rem; color: var(--taupe); }
+    .breadcrumb-inner a { color: var(--taupe); transition: color var(--transition); }
+    .breadcrumb-inner a:hover { color: var(--earth); }
+    .breadcrumb-inner .sep { opacity: 0.5; }
+    .breadcrumb-inner .current { color: var(--charcoal); }
+
+    /* ── CONTACT HERO ── */
+    .contact-hero {
+      background: var(--cream);
+      padding: 5rem 0 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(193,127,90,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .contact-hero-label { margin-bottom: 1rem; }
+    .contact-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 300; line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 1.2rem;
+    }
+    .contact-hero-title em { font-style: italic; color: var(--bark); }
+    .contact-hero-desc {
+      font-size: 1rem; font-weight: 300;
+      color: var(--taupe); max-width: 520px;
+      margin: 0 auto 3rem;
+      line-height: 1.85;
+    }
+    .contact-hero-img {
+      height: 320px;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: var(--radius) var(--radius) 0 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .contact-hero-img img { object-position: center 60%; }
+
+    /* ── QUICK ACCESS CARDS ── */
+    .quick-access {
+      padding: 4rem 0;
+      background: var(--warm-white);
+    }
+    .quick-access-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+    }
+    .quick-card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid var(--sand);
+      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+      cursor: pointer;
+    }
+    .quick-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--linen);
+    }
+    .quick-card-icon {
+      width: 52px; height: 52px;
+      margin: 0 auto 1.1rem;
+      background: var(--warm-white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--rust-accent);
+    }
+    .quick-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem; font-weight: 400;
+      color: var(--black); margin-bottom: 0.4rem;
+    }
+    .quick-card-text { font-size: 0.8rem; color: var(--taupe); line-height: 1.65; }
+
+    /* ── MAIN CONTACT LAYOUT ── */
+    .contact-main {
+      padding: 5rem 0 7rem;
+      background: var(--warm-white);
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* ── CONTACT INFO COLUMN ── */
+    .contact-info {}
+    .contact-info-title {
+      font-family: var(--font-serif);
+      font-size: 2rem; font-weight: 300;
+      color: var(--black); margin-bottom: 0.6rem;
+    }
+    .contact-info-desc {
+      font-size: 0.88rem; color: var(--taupe);
+      line-height: 1.8; margin-bottom: 2.5rem;
+    }
+
+    .contact-detail {
+      display: flex; gap: 1rem; align-items: flex-start;
+      margin-bottom: 1.6rem;
+    }
+    .contact-detail-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: var(--cream); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--rust-accent);
+      margin-top: 2px;
+    }
+    .contact-detail-label {
+      font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--taupe); margin-bottom: 0.2rem;
+    }
+    .contact-detail-value {
+      font-size: 0.92rem; color: var(--charcoal); line-height: 1.6;
+    }
+    .contact-detail-value a { color: var(--earth); transition: color var(--transition); }
+    .contact-detail-value a:hover { color: var(--rust-accent); }
+
+    /* Horario tabla */
+    .schedule-table {
+      width: 100%;
+      margin-top: 0.4rem;
+      border-collapse: collapse;
+    }
+    .schedule-table td {
+      font-size: 0.84rem; padding: 0.25rem 0;
+      color: var(--charcoal);
+    }
+    .schedule-table td:last-child {
+      text-align: right; color: var(--taupe);
+    }
+
+    /* Social links */
+    .contact-social {
+      display: flex; gap: 0.7rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--sand);
+    }
+    .contact-social-link {
+      display: flex; align-items: center; gap: 0.55rem;
+      font-size: 0.76rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--charcoal);
+      border: 1px solid var(--sand);
+      padding: 0.55rem 1rem;
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .contact-social-link:hover {
+      background: var(--earth); border-color: var(--earth); color: var(--cream);
+    }
+    .contact-social-link svg { flex-shrink: 0; }
+
+    /* ── FORM ── */
+    .contact-form-wrap {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 2.8rem 3rem;
+      border: 1px solid var(--sand);
+    }
+    .form-title {
+      font-family: var(--font-serif);
+      font-size: 1.7rem; font-weight: 300;
+      color: var(--black); margin-bottom: 0.4rem;
+    }
+    .form-subtitle {
+      font-size: 0.84rem; color: var(--taupe);
+      margin-bottom: 2rem; line-height: 1.7;
+    }
+
+    /* Tipo de consulta (radio pills) */
+    .inquiry-types {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+    }
+    .inquiry-type {
+      display: none;
+    }
+    .inquiry-label {
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--taupe);
+      border: 1px solid var(--linen);
+      background: var(--warm-white);
+      padding: 0.45rem 1rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+    .inquiry-type:checked + .inquiry-label {
+      background: var(--earth);
+      border-color: var(--earth);
+      color: var(--cream);
+    }
+    .inquiry-label:hover {
+      border-color: var(--bark);
+      color: var(--earth);
+    }
+    .inquiry-type:checked + .inquiry-label:hover { color: var(--cream); }
+
+    /* Form rows */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .form-row.full { grid-template-columns: 1fr; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .form-label {
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--charcoal);
+    }
+    .form-label span { color: var(--rust-accent); }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      font-family: var(--font-sans);
+      font-size: 0.88rem; font-weight: 300;
+      color: var(--charcoal);
+      background: var(--warm-white);
+      border: 1px solid var(--linen);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      width: 100%;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: var(--taupe); opacity: 0.7; }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--bark);
+      box-shadow: 0 0 0 3px rgba(122,102,85,0.1);
+    }
+    .form-input.error,
+    .form-select.error,
+    .form-textarea.error {
+      border-color: #c17070;
+      box-shadow: 0 0 0 3px rgba(193,112,112,0.1);
+    }
+    .field-error {
+      font-size: 0.7rem; color: #c17070;
+      margin-top: 0.2rem;
+      display: none;
+    }
+    .field-error.show { display: block; }
+
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='%23B5A898' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .form-textarea { resize: vertical; min-height: 130px; line-height: 1.7; }
+
+    /* File upload */
+    .file-upload-label {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 0.82rem; color: var(--taupe);
+      border: 1px dashed var(--linen);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      transition: border-color var(--transition), color var(--transition);
+      background: var(--warm-white);
+    }
+    .file-upload-label:hover { border-color: var(--bark); color: var(--charcoal); }
+    .file-upload-input { display: none; }
+
+    /* Privacy checkbox */
+    .privacy-row {
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      margin: 1.4rem 0 1.6rem;
+    }
+    .privacy-checkbox {
+      width: 16px; height: 16px; flex-shrink: 0;
+      accent-color: var(--earth); cursor: pointer; margin-top: 2px;
+    }
+    .privacy-text {
+      font-size: 0.78rem; color: var(--taupe); line-height: 1.6;
+    }
+    .privacy-text a { color: var(--bark); text-decoration: underline; transition: color var(--transition); }
+    .privacy-text a:hover { color: var(--earth); }
+
+    /* Submit */
+    .form-submit {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
+    }
+    .submit-note {
+      font-size: 0.75rem; color: var(--taupe);
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .submit-note svg { flex-shrink: 0; color: var(--sage); }
+
+    .btn-submit {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: var(--font-sans);
+      font-size: 0.76rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      padding: 0.9rem 2.2rem;
+      background: var(--earth); color: var(--cream);
+      border: none; border-radius: var(--radius);
+      cursor: pointer; transition: var(--transition);
+    }
+    .btn-submit:hover { background: var(--black); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .btn-submit svg { transition: transform var(--transition); }
+    .btn-submit:hover svg { transform: translateX(3px); }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .form-success.show { display: block; }
+    .success-icon {
+      width: 64px; height: 64px;
+      background: rgba(138,158,140,0.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--sage);
+    }
+    .success-title {
+      font-family: var(--font-serif);
+      font-size: 1.8rem; font-weight: 300;
+      color: var(--black); margin-bottom: 0.6rem;
+    }
+    .success-text { font-size: 0.9rem; color: var(--taupe); line-height: 1.75; }
+
+    /* ── FAQ ── */
+    .faq-section {
+      padding: 6rem 0;
+      background: var(--cream);
+    }
+    .faq-section .section-header { text-align: left; margin-bottom: 2.5rem; }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+    .faq-item {
+      background: var(--warm-white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%; display: flex;
+      align-items: center; justify-content: space-between;
+      gap: 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.88rem; font-weight: 400;
+      color: var(--charcoal);
+      background: none; border: none;
+      padding: 1.2rem 1.4rem;
+      cursor: pointer;
+      text-align: left;
+      transition: color var(--transition);
+    }
+    .faq-question:hover { color: var(--earth); }
+    .faq-icon {
+      width: 20px; height: 20px; flex-shrink: 0;
+      border: 1px solid var(--linen); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--taupe); transition: var(--transition);
+    }
+    .faq-item.open .faq-icon { background: var(--earth); border-color: var(--earth); color: #fff; transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.4s;
+      font-size: 0.84rem; color: var(--taupe); line-height: 1.8;
+      padding: 0 1.4rem;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+      padding: 0 1.4rem 1.2rem;
+    }
+
+    /* ── MAP PLACEHOLDER ── */
+    .map-section {
+      height: 380px;
+      background: var(--sand);
+      position: relative;
+      overflow: hidden;
+    }
+    .map-section img { object-position: center; }
+    .map-section::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(26,22,18,0.12);
+    }
+    .map-pin {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -60%);
+      z-index: 2;
+      text-align: center;
+    }
+    .map-pin-dot {
+      width: 16px; height: 16px;
+      background: var(--rust-accent);
+      border-radius: 50%;
+      margin: 0 auto 6px;
+      box-shadow: 0 0 0 6px rgba(193,127,90,0.25);
+      animation: pinPulse 2s ease infinite;
+    }
+    @keyframes pinPulse {
+      0%, 100% { box-shadow: 0 0 0 6px rgba(193,127,90,0.25); }
+      50%       { box-shadow: 0 0 0 12px rgba(193,127,90,0.1); }
+    }
+    .map-pin-label {
+      background: var(--warm-white);
+      font-size: 0.76rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--earth);
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      white-space: nowrap;
+    }
+
+    /* ── TRUST EXTENDED ── */
+    .trust-extended { background: var(--charcoal); padding: 4.5rem 0; }
+    .trust-extended-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .trust-ext-item { padding: 2rem 1.5rem; border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); text-align: center; transition: background var(--transition); }
+    .trust-ext-item:hover { background: rgba(255,255,255,0.04); }
+    .trust-ext-icon { width: 48px; height: 48px; margin: 0 auto 1.2rem; background: rgba(193,127,90,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--rust-accent); }
+    .trust-ext-title { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 400; color: var(--cream); margin-bottom: 0.5rem; }
+    .trust-ext-text { font-size: 0.81rem; color: var(--taupe); line-height: 1.7; }
+
+    /* ── FOOTER ── */
+    .site-footer { background: var(--charcoal); color: var(--taupe); padding: 5rem 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.2fr; gap: 2.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-brand .logo-name { color: var(--sand); }
+    .footer-brand .logo-tagline { color: var(--bark); }
+    .footer-brand-desc { font-size: 0.84rem; line-height: 1.8; margin-top: 1.1rem; margin-bottom: 1.6rem; }
+    .footer-social { display: flex; gap: 0.7rem; }
+    .footer-social a { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--taupe); transition: var(--transition); }
+    .footer-social a:hover { background: var(--rust-accent); border-color: var(--rust-accent); color: #fff; }
+    .footer-col-title { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sand); margin-bottom: 1.3rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a { font-size: 0.83rem; color: var(--taupe); transition: color var(--transition); }
+    .footer-links a:hover { color: var(--sand); }
+    .footer-contact-item { display: flex; gap: 0.65rem; align-items: flex-start; font-size: 0.83rem; margin-bottom: 0.75rem; }
+    .footer-contact-item svg { flex-shrink: 0; margin-top: 2px; }
+    .footer-bottom { padding: 1.4rem 0; display: flex; align-items: center; justify-content: space-between; font-size: 0.74rem; color: rgba(181,168,152,0.5); flex-wrap: wrap; gap: 0.5rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1000px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .quick-access-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-extended-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .header-inner { grid-template-columns: 1fr auto; }
+      .main-nav { display: none; }
+      .hamburger { display: flex; }
+      .mobile-nav { display: block; }
+      .faq-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .quick-access-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: 2rem 1.5rem; }
+      .form-submit { flex-direction: column; align-items: flex-start; }
+      .trust-extended-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .contact-hero-img { height: 220px; }
+      .inquiry-types { gap: 0.4rem; }
+    }
+    @media (max-width: 400px) {
+      .trust-extended-grid { grid-template-columns: 1fr; }
+      .quick-access-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <span class="top-bar-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Envío gratuito en pedidos desde 199€
+        </span>
+        <span class="top-bar-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Pago 100% seguro
+        </span>
+        <span class="top-bar-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Atención personalizada · Lun–Vie 9h–19h
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-name">Natura Home</span>
+          <span class="logo-tagline">Muebles con alma</span>
+        </a>
+        <nav class="main-nav" aria-label="Navegación principal">
+          <a href="index.html">Inicio</a>
+          <a href="hogar.html">Hogar</a>
+          <a href="bano.html">Baño</a>
+          <a href="terraza-jardin.html">Terraza y jardín</a>
+          <a href="contacto.html" class="active">Contacto</a>
+        </nav>
+        <div class="header-actions">
+          <button class="header-icon-btn" aria-label="Buscar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </button>
+          <button class="header-icon-btn" aria-label="Favoritos">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="carrito.html" class="header-icon-btn" aria-label="Carrito">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </a>
+          <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <nav class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" id="mobileNavClose">✕</button>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="hogar.html">Hogar</a></li>
+      <li><a href="bano.html">Baño</a></li>
+      <li><a href="terraza-jardin.html">Terraza y jardín</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <div class="container">
+        <div class="breadcrumb-inner">
+          <a href="index.html">Inicio</a>
+          <span class="sep">›</span>
+          <span class="current">Contacto</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="contact-hero">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label contact-hero-label">Estamos aquí para ayudarte</span>
+          <h1 class="contact-hero-title">
+            Cuéntanos en qué<br>podemos <em>ayudarte</em>
+          </h1>
+          <p class="contact-hero-desc">
+            Ya sea una duda sobre un pedido, una pregunta sobre un producto o simplemente quieres que te asesoremos en tu proyecto de decoración, te respondemos en menos de 24 h.
+          </p>
+        </div>
+        <div class="contact-hero-img reveal reveal-delay-1">
+          <img
+            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&q=80&auto=format&fit=crop"
+            alt="Equipo Natura Home atendiendo consultas"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK ACCESS -->
+    <section class="quick-access">
+      <div class="container">
+        <div class="quick-access-grid">
+
+          <div class="quick-card reveal reveal-delay-1">
+            <div class="quick-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg>
+            </div>
+            <h3 class="quick-card-title">Llámanos</h3>
+            <p class="quick-card-text">+34 900 123 456<br>Lun–Vie de 9h a 19h</p>
+          </div>
+
+          <div class="quick-card reveal reveal-delay-2">
+            <div class="quick-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h3 class="quick-card-title">Escríbenos</h3>
+            <p class="quick-card-text">hola@naturahome.es<br>Respondemos en &lt; 24 h</p>
+          </div>
+
+          <div class="quick-card reveal reveal-delay-3">
+            <div class="quick-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3 class="quick-card-title">Chat en vivo</h3>
+            <p class="quick-card-text">Disponible en horario<br>de atención al cliente</p>
+          </div>
+
+          <div class="quick-card reveal reveal-delay-4">
+            <div class="quick-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7.05 11.5 7.35 11.76a1 1 0 0 0 1.3 0C13 21.5 20 15.4 20 10a8 8 0 0 0-8-8z"/></svg>
+            </div>
+            <h3 class="quick-card-title">Visítanos</h3>
+            <p class="quick-card-text">Showroom — Calle del<br>Pinar 14, Madrid</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN: INFO + FORM -->
+    <section class="contact-main">
+      <div class="container">
+        <div class="contact-layout">
+
+          <!-- INFO -->
+          <div class="contact-info reveal">
+            <span class="section-label">Información de contacto</span>
+            <h2 class="contact-info-title">Hablemos</h2>
+            <p class="contact-info-desc">
+              Nuestro equipo está disponible para ayudarte con cualquier consulta, desde la elección del mueble perfecto hasta el seguimiento de tu pedido.
+            </p>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg>
+              </div>
+              <div>
+                <p class="contact-detail-label">Teléfono</p>
+                <p class="contact-detail-value">
+                  <a href="tel:+34900123456">+34 900 123 456</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <p class="contact-detail-label">Email</p>
+                <p class="contact-detail-value">
+                  <a href="mailto:hola@naturahome.es">hola@naturahome.es</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7.05 11.5 7.35 11.76a1 1 0 0 0 1.3 0C13 21.5 20 15.4 20 10a8 8 0 0 0-8-8z"/></svg>
+              </div>
+              <div>
+                <p class="contact-detail-label">Showroom</p>
+                <p class="contact-detail-value">Calle del Pinar 14, planta baja<br>28006 Madrid</p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <p class="contact-detail-label">Horario de atención</p>
+                <table class="schedule-table">
+                  <tr><td>Lunes – Viernes</td><td>9:00 – 19:00</td></tr>
+                  <tr><td>Sábados</td><td>10:00 – 14:00</td></tr>
+                  <tr><td>Domingos y festivos</td><td>Cerrado</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="contact-social">
+              <a href="#" class="contact-social-link" aria-label="Instagram">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                Instagram
+              </a>
+              <a href="#" class="contact-social-link" aria-label="Pinterest">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.22-5.17 1.22-5.17s-.31-.63-.31-1.56c0-1.46.85-2.55 1.9-2.55.9 0 1.33.67 1.33 1.48 0 .9-.57 2.25-.87 3.5-.25 1.05.52 1.9 1.55 1.9 1.86 0 3.1-2.4 3.1-5.25 0-2.16-1.46-3.67-3.54-3.67-2.41 0-3.83 1.81-3.83 3.68 0 .73.28 1.51.63 1.93a.25.25 0 0 1 .06.24c-.06.27-.21.85-.24.97-.04.16-.13.19-.3.11-1.12-.52-1.82-2.16-1.82-3.48 0-2.83 2.06-5.43 5.93-5.43 3.11 0 5.53 2.22 5.53 5.18 0 3.09-1.95 5.58-4.65 5.58-.91 0-1.76-.47-2.05-1.03l-.56 2.07c-.2.78-.75 1.75-1.12 2.35.84.26 1.73.4 2.65.4 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                Pinterest
+              </a>
+            </div>
+          </div>
+
+          <!-- FORM -->
+          <div class="contact-form-wrap reveal reveal-delay-2" id="formWrap">
+
+            <div id="formContent">
+              <h2 class="form-title">Envíanos un mensaje</h2>
+              <p class="form-subtitle">Rellena el formulario y te respondemos en menos de 24 horas laborables.</p>
+
+              <!-- Tipo de consulta -->
+              <div style="margin-bottom:0.5rem">
+                <p class="form-label" style="margin-bottom:0.7rem">Tipo de consulta</p>
+                <div class="inquiry-types">
+                  <input type="radio" name="inquiry" id="inq-pedido" class="inquiry-type" value="pedido" checked />
+                  <label for="inq-pedido" class="inquiry-label">Pedido</label>
+
+                  <input type="radio" name="inquiry" id="inq-producto" class="inquiry-type" value="producto" />
+                  <label for="inq-producto" class="inquiry-label">Producto</label>
+
+                  <input type="radio" name="inquiry" id="inq-envio" class="inquiry-type" value="envio" />
+                  <label for="inq-envio" class="inquiry-label">Envío</label>
+
+                  <input type="radio" name="inquiry" id="inq-devolucion" class="inquiry-type" value="devolucion" />
+                  <label for="inq-devolucion" class="inquiry-label">Devolución</label>
+
+                  <input type="radio" name="inquiry" id="inq-decoracion" class="inquiry-type" value="decoracion" />
+                  <label for="inq-decoracion" class="inquiry-label">Asesoramiento</label>
+
+                  <input type="radio" name="inquiry" id="inq-otro" class="inquiry-type" value="otro" />
+                  <label for="inq-otro" class="inquiry-label">Otro</label>
+                </div>
+              </div>
+
+              <form id="contactForm" novalidate>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="firstName" class="form-label">Nombre <span>*</span></label>
+                    <input type="text" id="firstName" name="firstName" class="form-input" placeholder="Tu nombre" autocomplete="given-name" />
+                    <span class="field-error" id="err-firstName">Por favor, introduce tu nombre.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName" class="form-label">Apellidos <span>*</span></label>
+                    <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Tus apellidos" autocomplete="family-name" />
+                    <span class="field-error" id="err-lastName">Por favor, introduce tus apellidos.</span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="email" class="form-label">Email <span>*</span></label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="correo@ejemplo.com" autocomplete="email" />
+                    <span class="field-error" id="err-email">Introduce un email válido.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="phone" class="form-label">Teléfono</label>
+                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="+34 600 000 000" autocomplete="tel" />
+                  </div>
+                </div>
+
+                <div class="form-row full" style="margin-bottom:1rem">
+                  <div class="form-group">
+                    <label for="orderNum" class="form-label">Número de pedido <span style="color:var(--taupe);font-weight:300;letter-spacing:0;text-transform:none;font-size:0.72rem">(si aplica)</span></label>
+                    <input type="text" id="orderNum" name="orderNum" class="form-input" placeholder="NH-XXXXXXX" />
+                  </div>
+                </div>
+
+                <div class="form-row full" style="margin-bottom:1rem">
+                  <div class="form-group">
+                    <label for="subject" class="form-label">Asunto <span>*</span></label>
+                    <select id="subject" name="subject" class="form-select">
+                      <option value="" disabled selected>Selecciona un asunto…</option>
+                      <option>Consulta sobre un producto</option>
+                      <option>Estado de mi pedido</option>
+                      <option>Cambio o devolución</option>
+                      <option>Incidencia con entrega</option>
+                      <option>Asesoramiento de decoración</option>
+                      <option>Facturación o pago</option>
+                      <option>Colaboración o prensa</option>
+                      <option>Otro</option>
+                    </select>
+                    <span class="field-error" id="err-subject">Por favor, selecciona un asunto.</span>
+                  </div>
+                </div>
+
+                <div class="form-row full" style="margin-bottom:1rem">
+                  <div class="form-group">
+                    <label for="message" class="form-label">Mensaje <span>*</span></label>
+                    <textarea id="message" name="message" class="form-textarea" placeholder="Cuéntanos en qué podemos ayudarte con el mayor detalle posible…"></textarea>
+                    <span class="field-error" id="err-message">Por favor, escribe tu mensaje (mínimo 20 caracteres).</span>
+                  </div>
+                </div>
+
+                <div class="form-row full" style="margin-bottom:0">
+                  <div class="form-group">
+                    <label class="form-label" style="margin-bottom:0.5rem">Adjuntar archivo <span style="color:var(--taupe);font-weight:300;letter-spacing:0;text-transform:none;font-size:0.72rem">(opcional · JPG, PNG o PDF, máx. 5 MB)</span></label>
+                    <label class="file-upload-label" for="fileUpload">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                      <span id="fileName">Haz clic para seleccionar o arrastra el archivo aquí</span>
+                    </label>
+                    <input type="file" id="fileUpload" class="file-upload-input" accept=".jpg,.jpeg,.png,.pdf" />
+                  </div>
+                </div>
+
+                <div class="privacy-row">
+                  <input type="checkbox" id="privacy" name="privacy" class="privacy-checkbox" />
+                  <label for="privacy" class="privacy-text">
+                    He leído y acepto la <a href="#">política de privacidad</a>. Consiento el tratamiento de mis datos para gestionar mi consulta. <span id="err-privacy" class="field-error" style="display:inline">*</span>
+                  </label>
+                </div>
+                <span class="field-error" id="err-privacy-msg">Debes aceptar la política de privacidad para continuar.</span>
+
+                <div class="form-submit">
+                  <p class="submit-note">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    Tus datos están protegidos con SSL
+                  </p>
+                  <button type="submit" class="btn-submit" id="submitBtn">
+                    Enviar mensaje
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </button>
+                </div>
+
+              </form>
+            </div>
+
+            <!-- Success state -->
+            <div class="form-success" id="formSuccess">
+              <div class="success-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h3 class="success-title">¡Mensaje enviado!</h3>
+              <p class="success-text">
+                Gracias por contactarnos. Hemos recibido tu consulta y te responderemos en menos de 24 horas laborables a la dirección de email que nos has facilitado.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Preguntas frecuentes</span>
+          <h2 class="section-title">Respuestas rápidas</h2>
+        </div>
+        <div class="faq-grid">
+
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question">
+              ¿Cuánto tarda en llegar mi pedido?
+              <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">Los pedidos en stock se entregan en 5–10 días laborables. Los artículos bajo pedido o de gran formato pueden requerir entre 3 y 6 semanas. Te informamos del plazo exacto al confirmar tu compra.</div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-question">
+              ¿Puedo devolver un producto si no me convence?
+              <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">Sí. Tienes 30 días desde la recepción del pedido para devolver cualquier artículo en su estado original sin coste adicional. Contáctanos y gestionamos la recogida.</div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-3">
+            <button class="faq-question">
+              ¿Ofrecéis servicio de montaje en domicilio?
+              <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">Sí, disponemos de servicio de montaje en el área metropolitana de Madrid. Para otras zonas, consúltanos disponibilidad. El coste depende del número y tipo de piezas.</div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-4">
+            <button class="faq-question">
+              ¿Puedo visitar vuestro showroom antes de comprar?
+              <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">Por supuesto. Nuestro showroom en Madrid está abierto de lunes a viernes de 9h a 19h y los sábados de 10h a 14h. Te recomendamos reservar cita para atención personalizada.</div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question">
+              ¿Qué métodos de pago aceptáis?
+              <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">Aceptamos tarjeta de crédito/débito, transferencia bancaria y Bizum. Todas las transacciones están cifradas con SSL. No guardamos datos de pago en nuestros servidores.</div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-question">
+              ¿Los muebles de exterior aguantan la lluvia?
+              <span class="faq-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">Todos nuestros muebles de exterior están fabricados con materiales tratados para resistir las condiciones climáticas. Aun así, recomendamos guardarlos o cubrirlos en invierno para prolongar su vida útil.</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <div class="map-section">
+      <img
+        src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=70&auto=format&fit=crop"
+        alt="Ubicación Natura Home Madrid"
+        loading="lazy"
+      />
+      <div class="map-pin">
+        <div class="map-pin-dot"></div>
+        <div class="map-pin-label">Natura Home · Madrid</div>
+      </div>
+    </div>
+
+    <!-- TRUST EXTENDED -->
+    <section class="trust-extended">
+      <div class="container">
+        <div class="trust-extended-grid">
+          <div class="trust-ext-item reveal reveal-delay-1">
+            <div class="trust-ext-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3 class="trust-ext-title">Respuesta en &lt; 24 h</h3>
+            <p class="trust-ext-text">Te respondemos siempre en menos de un día laborable, sin bots ni respuestas automáticas.</p>
+          </div>
+          <div class="trust-ext-item reveal reveal-delay-2">
+            <div class="trust-ext-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="trust-ext-title">Equipo humano</h3>
+            <p class="trust-ext-text">Cada consulta la atiende una persona real que conoce nuestros productos a fondo.</p>
+          </div>
+          <div class="trust-ext-item reveal reveal-delay-3">
+            <div class="trust-ext-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3 class="trust-ext-title">Datos protegidos</h3>
+            <p class="trust-ext-text">Tu información se trata con total confidencialidad y nunca se cede a terceros.</p>
+          </div>
+          <div class="trust-ext-item reveal reveal-delay-4">
+            <div class="trust-ext-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.74"/></svg>
+            </div>
+            <h3 class="trust-ext-title">Sin esperas</h3>
+            <p class="trust-ext-text">Sin colas, sin formularios complicados. Cuéntanos tu duda y nosotros nos encargamos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" aria-label="Pie de página">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-name">Natura Home</span>
+            <span class="logo-tagline">Muebles con alma</span>
+          </a>
+          <p class="footer-brand-desc">Tienda de muebles artesanales y de diseño. Seleccionamos cada pieza para que encuentres el equilibrio entre belleza, calidad y funcionalidad.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="Pinterest"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.22-5.17 1.22-5.17s-.31-.63-.31-1.56c0-1.46.85-2.55 1.9-2.55.9 0 1.33.67 1.33 1.48 0 .9-.57 2.25-.87 3.5-.25 1.05.52 1.9 1.55 1.9 1.86 0 3.1-2.4 3.1-5.25 0-2.16-1.46-3.67-3.54-3.67-2.41 0-3.83 1.81-3.83 3.68 0 .73.28 1.51.63 1.93a.25.25 0 0 1 .06.24c-.06.27-.21.85-.24.97-.04.16-.13.19-.3.11-1.12-.52-1.82-2.16-1.82-3.48 0-2.83 2.06-5.43 5.93-5.43 3.11 0 5.53 2.22 5.53 5.18 0 3.09-1.95 5.58-4.65 5.58-.91 0-1.76-.47-2.05-1.03l-.56 2.07c-.2.78-.75 1.75-1.12 2.35.84.26 1.73.4 2.65.4 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">Tienda</p>
+          <nav class="footer-links">
+            <a href="index.html">Inicio</a>
+            <a href="hogar.html">Hogar</a>
+            <a href="bano.html">Baño</a>
+            <a href="terraza-jardin.html">Terraza y jardín</a>
+            <a href="contacto.html">Contacto</a>
+          </nav>
+        </div>
+        <div>
+          <p class="footer-col-title">Ayuda</p>
+          <nav class="footer-links">
+            <a href="#">Envíos y plazos</a>
+            <a href="#">Devoluciones</a>
+            <a href="#">Garantía</a>
+            <a href="#">Preguntas frecuentes</a>
+          </nav>
+        </div>
+        <div>
+          <p class="footer-col-title">Contacto</p>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>hola@naturahome.es</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg>
+            <span>+34 900 123 456</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Lun–Vie · 9h – 19h</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Natura Home · Todos los derechos reservados</span>
+        <span>
+          <a href="#" style="color:inherit;text-decoration:underline">Aviso legal</a>
+          &nbsp;·&nbsp;
+          <a href="#" style="color:inherit;text-decoration:underline">Privacidad</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Header scroll ── */
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+    /* ── Mobile nav ── */
+    const hamburger     = document.getElementById('hamburgerBtn');
+    const mobileNav     = document.getElementById('mobileNav');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const mobileClose   = document.getElementById('mobileNavClose');
+    function openNav()  { hamburger.classList.add('open'); mobileNav.classList.add('open'); mobileOverlay.classList.add('show'); hamburger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+    function closeNav() { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); mobileOverlay.classList.remove('show'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+    hamburger.addEventListener('click', () => mobileNav.classList.contains('open') ? closeNav() : openNav());
+    mobileClose.addEventListener('click', closeNav);
+    mobileOverlay.addEventListener('click', closeNav);
+
+    /* ── File upload label ── */
+    document.getElementById('fileUpload').addEventListener('change', function() {
+      const label = document.getElementById('fileName');
+      label.textContent = this.files.length ? this.files[0].name : 'Haz clic para seleccionar o arrastra el archivo aquí';
+    });
+
+    /* ── Form validation & submit ── */
+    const form       = document.getElementById('contactForm');
+    const submitBtn  = document.getElementById('submitBtn');
+    const formContent = document.getElementById('formContent');
+    const formSuccess = document.getElementById('formSuccess');
+
+    function validateField(id, condition, errId) {
+      const el  = document.getElementById(id);
+      const err = document.getElementById(errId);
+      if (!condition(el.value)) {
+        el.classList.add('error');
+        err.classList.add('show');
+        return false;
+      }
+      el.classList.remove('error');
+      err.classList.remove('show');
+      return true;
+    }
+
+    function clearError(id, errId) {
+      document.getElementById(id).classList.remove('error');
+      document.getElementById(errId).classList.remove('show');
+    }
+
+    ['firstName','lastName','email','subject','message'].forEach(id => {
+      const errMap = { firstName:'err-firstName', lastName:'err-lastName', email:'err-email', subject:'err-subject', message:'err-message' };
+      document.getElementById(id).addEventListener('input', () => clearError(id, errMap[id]));
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      let valid = true;
+      valid = validateField('firstName', v => v.trim().length >= 2, 'err-firstName') && valid;
+      valid = validateField('lastName',  v => v.trim().length >= 2, 'err-lastName')  && valid;
+      valid = validateField('email',     v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), 'err-email') && valid;
+      valid = validateField('subject',   v => v !== '', 'err-subject') && valid;
+      valid = validateField('message',   v => v.trim().length >= 20, 'err-message') && valid;
+
+      const privacy    = document.getElementById('privacy');
+      const privacyErr = document.getElementById('err-privacy-msg');
+      if (!privacy.checked) {
+        privacyErr.classList.add('show');
+        valid = false;
+      } else {
+        privacyErr.classList.remove('show');
+      }
+
+      if (!valid) return;
+
+      /* Simulate send */
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando…';
+
+      setTimeout(() => {
+        formContent.style.display = 'none';
+        formSuccess.classList.add('show');
+      }, 1200);
+    });
+
+    /* ── FAQ accordion ── */
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item    = btn.closest('.faq-item');
+        const isOpen  = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* ── Scroll reveal ── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+
+</body>
+</html>
